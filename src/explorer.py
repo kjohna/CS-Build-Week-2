@@ -10,16 +10,16 @@ load_dotenv()
 
 class Explorer:
     def __init__(self):
-        # load most recent map from map.txt
+        # load most recent map from map.json
         # note should at minimum be text file containing: "{}"
         map_graph_existing = {}
         try:
-            with open('map.txt', 'r+') as f:
+            with open('map.json', 'r+') as f:
                 map_graph_existing = json.loads(f.readline())
         except OSError:
-            print("Cannot open map.txt..does it exist?")
-        self.opp_dir = {'n': 's', 'e': 'w', 's': 'n', 'w': 'e'}
+            print("Cannot open map.json..does it exist?")
         self.map_graph = {**map_graph_existing}
+        self.opp_dir = {'n': 's', 'e': 'w', 's': 'n', 'w': 'e'}
         # set up connection to server
         self.server_url = 'https://lambda-treasure-hunt.herokuapp.com/api/adv'
         self.api_key = os.environ.get('API_KEY')
@@ -33,62 +33,78 @@ class Explorer:
         self.current_room_title = r_data['title']
         self.exits = r_data['exits']
         self.cool_down = r_data['cooldown']
-        # wait for "cool_down" before anything else
-        time.sleep(self.cool_down)
-        print(r_data)
-
-    def orient(self, r_data, dir_traveled):
-        prev_room = self.current_room
-        prev_dir = self.opp_dir[dir_traveled]
-        self.current_room = str(r_data['room_id'])
-        self.current_room_title = r_data['title']
-        self.exits = r_data['exits']
-        self.cool_down = r_data['cooldown']
         # initialize if this is the first time running
         if len(self.map_graph.keys()) == 0:
             found_exits = {}
             for exit_dir in self.exits:
                 found_exits[exit_dir] = '?'
-            self.map_graph[self.current_room] = found_exits
-        else:
-            if self.current_room not in self.map_graph:
-                found_exits = {}
-                for exit_dir in self.exits:
-                    found_exits[exit_dir] = '?'
-                self.map_graph[self.current_room] = found_exits
-            self.map_graph[prev_room][dir_traveled] = self.current_room
-            self.map_graph[self.current_room][prev_dir] = prev_room
+            self.map_graph[self.current_room] = {'title': '', 'exits': ''}
+            self.map_graph[self.current_room]['title'] = self.current_room_title
+            self.map_graph[self.current_room]['exits'] = found_exits
+            self.update_stored_map
+        # wait for "cool_down" before anything else
+        time.sleep(self.cool_down)
+        print(r_data)
+
+    def orient(self, r_data, dir_traveled):
+        '''
+        Receives response data from a movement plus direction traveled.
+        Updates map graph with current/previous room directions
+        and self with current room info 
+        '''
+        prev_room = self.current_room
+        prev_room_title = self.current_room_title
+        rev_dir = self.opp_dir[dir_traveled]
+        self.current_room = str(r_data['room_id'])
+        self.current_room_title = r_data['title']
+        self.exits = r_data['exits']
+        self.cool_down = r_data['cooldown']
+        if self.current_room not in self.map_graph:
+            found_exits = {}
+            for exit_dir in self.exits:
+                found_exits[exit_dir] = '?'
+            self.map_graph[self.current_room] = {
+                'title': self.current_room_title, 'exits': found_exits
+            }
+        self.map_graph[prev_room]['exits'][dir_traveled] = self.current_room
+        self.map_graph[self.current_room]['exits'][rev_dir] = prev_room
         self.update_stored_map()
 
     def update_stored_map(self):
-        with open('map.txt', 'w+') as f:
+        ''' 
+        dump map graph data to file 
+        '''
+        with open('map.json', 'w+') as f:
             json.dump(self.map_graph, f)
-        print(self.map_graph)
-
-    # keep playing until program is interrupted
+        # print(self.map_graph)
 
     def get_route_to(self, target):
-        # BFS for nearest '?' and add to travel_queue
+        '''
+        BFS for nearest '?' and add to travel_queue
+        '''
         q = collections.deque([])
         for ex_dir in self.exits:
             q.append([ex_dir])
-        check_room = self.current_room
         while len(q) > 0:
-            print(q)
+            print(f"get_route_to ->{target}<-..current path: {q}")
             path = q.popleft()
+            next_room = self.current_room
+            for direction in path:
+                next_room = self.map_graph[next_room]['exits'][direction]
             check_dir = path[-1]
-            next_room = self.map_graph[check_room][check_dir]
+            # next_room = self.map_graph[check_room]['exits'][check_dir]
+            print(f"check_dir: {check_dir}, next_room: {next_room}")
             if next_room == target:
                 # found target
                 travel_queue = collections.deque(path)
                 break
             else:
-                check_room = next_room
-                for ex in self.map_graph[check_room]:
-                    new_path = path[:]
-                    new_path.append(ex)
-                    q.append(new_path)
-        print(travel_queue)
+                for ex in self.map_graph[next_room]['exits']:
+                    if not ex == self.opp_dir[ex_dir]:
+                        new_path = path[:]
+                        new_path.append(ex)
+                        q.append(new_path)
+        print(f"new route: {travel_queue}")
         return travel_queue
 
     def travel(self, travel_queue):
@@ -103,6 +119,14 @@ class Explorer:
             print("-" * 20)
             print(f"travel request: {r_data}")
             time.sleep(self.cool_down)
+            if len(r_data['items']) > 0:
+                data = json.dumps({'name': 'treasure'})
+                r = requests.post(self.server_url + '/take/',
+                                  headers=self.auth_header, data=data)
+                r_data = r.json()
+                print("$" * 20)
+                print(f"treasure found: {r_data}")
+                time.sleep(r_data['cooldown'])
 
     def explore(self):
         while True:
