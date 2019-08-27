@@ -111,9 +111,14 @@ class Explorer:
         # expects a travel_queue which is a "deque"
         while len(travel_queue) > 0:
             direction = travel_queue.popleft()
-            data = json.dumps({'direction': direction})
+            data = {'direction': direction}
+            # if we know the id of the next room, add to the data for the request to get "Wise Explorer" reduction of cooldown
+            next_room = self.map_graph[self.current_room]['exits'][direction]
+            if not next_room == '?':
+                data['next_room_id'] = next_room
+            data_json = json.dumps(data)
             r = requests.post(self.server_url + '/move/',
-                              headers=self.auth_header, data=data)
+                              headers=self.auth_header, data=data_json)
             r_data = r.json()
             self.orient(r_data, direction)
             print("-" * 20)
