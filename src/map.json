@@ -1,1 +1,671 @@
-{"411": {"title": "A misty room", "exits": {"w": "268"}}, "268": {"title": "A misty room", "exits": {"s": "203", "e": "411", "w": "?"}}, "203": {"title": "A misty room", "exits": {"n": "268", "s": "165", "e": "299"}}, "299": {"title": "A misty room", "exits": {"e": "311", "w": "203"}}, "311": {"title": "A misty room", "exits": {"w": "299"}}, "165": {"title": "A misty room", "exits": {"n": "203", "s": "125", "w": "?"}}, "125": {"title": "A misty room", "exits": {"n": "165", "e": "83", "w": "?"}}, "83": {"title": "A misty room", "exits": {"s": "76", "e": "?", "w": "125"}}, "76": {"title": "A misty room", "exits": {"n": "83", "e": "72", "w": "?"}}, "72": {"title": "A misty room", "exits": {"s": "63", "w": "76"}}, "63": {"title": "A misty room", "exits": {"n": "72", "s": "20", "w": "?"}}, "20": {"title": "A misty room", "exits": {"n": "63", "s": "19", "e": "?", "w": "?"}}, "19": {"title": "A misty room", "exits": {"n": "20", "s": "10", "w": "?"}}, "10": {"title": "A misty room", "exits": {"n": "19", "s": "0", "w": "?"}}, "0": {"title": "A brightly lit room", "exits": {"n": "10", "s": "2", "e": "?", "w": "?"}}, "2": {"title": "A misty room", "exits": {"n": "0", "s": "6", "e": "3"}}, "6": {"title": "A misty room", "exits": {"n": "2", "w": "7"}}, "7": {"title": "A misty room", "exits": {"n": "8", "e": "6", "w": "?"}}, "8": {"title": "A misty room", "exits": {"s": "7", "w": "16"}}, "16": {"title": "A misty room", "exits": {"n": "58", "e": "8", "w": "?"}}, "58": {"title": "A misty room", "exits": {"s": "16", "w": "65"}}, "65": {"title": "A misty room", "exits": {"n": "74", "e": "58", "w": "?"}}, "74": {"title": "A misty room", "exits": {"n": "87", "s": "65", "w": "161"}}, "87": {"title": "A misty room", "exits": {"s": "74"}}, "161": {"title": "A misty room", "exits": {"e": "74"}}, "3": {"title": "Mt. Holloway", "exits": {"s": "9", "e": "?", "w": "2"}}, "9": {"title": "Mt. Holloway", "exits": {"n": "3", "s": "12", "e": "?"}}, "12": {"title": "Mt. Holloway", "exits": {"n": "9", "s": "18", "e": "14", "w": "21"}}, "18": {"title": "Mt. Holloway", "exits": {"n": "12", "s": "22", "w": "?"}}, "22": {"title": "The Peak of Mt. Holloway", "exits": {"n": "18", "s": "78", "w": "?"}}, "78": {"title": "Mt. Holloway", "exits": {"n": "22", "s": "108"}}, "108": {"title": "Mt. Holloway", "exits": {"n": "78", "s": "117", "e": "?"}}, "117": {"title": "Mt. Holloway", "exits": {"n": "108", "s": "131", "e": "?", "w": "?"}}, "131": {"title": "Mt. Holloway", "exits": {"n": "117", "s": "244", "w": "?"}}, "244": {"title": "A misty room", "exits": {"n": "131", "e": "239"}}, "239": {"title": "A misty room", "exits": {"n": "198", "w": "244"}}, "198": {"title": "A misty room", "exits": {"n": "166", "s": "239", "e": "?"}}, "166": {"title": "Mt. Holloway", "exits": {"s": "198", "e": "150", "w": "?"}}, "150": {"title": "A misty room", "exits": {"n": "135", "w": "166"}}, "135": {"title": "A misty room", "exits": {"s": "150", "e": "106"}}, "106": {"title": "A misty room", "exits": {"n": "100", "s": "?", "w": "135"}}, "100": {"title": "A misty room", "exits": {"s": "106", "e": "112", "w": "68"}}, "112": {"title": "A misty room", "exits": {"s": "141", "e": "?", "w": "100"}}, "141": {"title": "A misty room", "exits": {"n": "112", "e": "156"}}, "156": {"title": "A misty room", "exits": {"s": "168", "e": "?", "w": "141"}}, "168": {"title": "A misty room", "exits": {"n": "156", "e": "340"}}, "340": {"title": "A misty room", "exits": {"w": "168"}}, "68": {"title": "A misty room", "exits": {"n": "52", "e": "100"}}, "52": {"title": "A misty room", "exits": {"n": "35", "s": "68", "e": "?"}}, "35": {"title": "A misty room", "exits": {"s": "52", "w": "34"}}, "34": {"title": "Mt. Holloway", "exits": {"n": "14", "s": "?", "e": "35"}}, "14": {"title": "Mt. Holloway", "exits": {"s": "34", "e": "37", "w": "12"}}, "37": {"title": "Mt. Holloway", "exits": {"w": "14"}}, "21": {"title": "Mt. Holloway", "exits": {"e": "12", "w": "?"}}}
+{
+    "0": {
+        "exits": {
+            "e": "?",
+            "n": "10",
+            "s": "2",
+            "w": "1"
+        },
+        "title": "A brightly lit room"
+    },
+    "1": {
+        "exits": {
+            "e": "0"
+        },
+        "title": "Shop"
+    },
+    "10": {
+        "exits": {
+            "n": "19",
+            "s": "0",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "100": {
+        "exits": {
+            "e": "112",
+            "s": "106",
+            "w": "68"
+        },
+        "title": "A misty room"
+    },
+    "105": {
+        "exits": {
+            "n": "48",
+            "w": "202"
+        },
+        "title": "Mt. Holloway"
+    },
+    "106": {
+        "exits": {
+            "n": "100",
+            "s": "?",
+            "w": "135"
+        },
+        "title": "A misty room"
+    },
+    "108": {
+        "exits": {
+            "e": "?",
+            "n": "78",
+            "s": "117"
+        },
+        "title": "Mt. Holloway"
+    },
+    "11": {
+        "coordinates": "(62,58)",
+        "elevation": 1,
+        "exits": {
+            "e": "17",
+            "w": "9"
+        },
+        "terrain": "MOUNTAIN",
+        "title": "Mt. Holloway"
+    },
+    "112": {
+        "exits": {
+            "e": "?",
+            "s": "141",
+            "w": "100"
+        },
+        "title": "A misty room"
+    },
+    "117": {
+        "exits": {
+            "e": "?",
+            "n": "108",
+            "s": "131",
+            "w": "?"
+        },
+        "title": "Mt. Holloway"
+    },
+    "12": {
+        "coordinates": "(61,57)",
+        "elevation": 3,
+        "exits": {
+            "e": "14",
+            "n": "9",
+            "s": "18",
+            "w": "21"
+        },
+        "terrain": "MOUNTAIN",
+        "title": "Mt. Holloway"
+    },
+    "125": {
+        "exits": {
+            "e": "83",
+            "n": "165",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "131": {
+        "exits": {
+            "n": "117",
+            "s": "244",
+            "w": "?"
+        },
+        "title": "Mt. Holloway"
+    },
+    "135": {
+        "exits": {
+            "e": "106",
+            "s": "150"
+        },
+        "title": "A misty room"
+    },
+    "136": {
+        "coordinates": "(57,57)",
+        "elevation": 0,
+        "exits": {
+            "e": "49",
+            "w": "148"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "14": {
+        "exits": {
+            "e": "37",
+            "s": "34",
+            "w": "12"
+        },
+        "title": "Mt. Holloway"
+    },
+    "141": {
+        "exits": {
+            "e": "156",
+            "n": "112"
+        },
+        "title": "A misty room"
+    },
+    "148": {
+        "coordinates": "(56,57)",
+        "elevation": 0,
+        "exits": {
+            "e": "136",
+            "w": "292"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "150": {
+        "exits": {
+            "n": "135",
+            "w": "166"
+        },
+        "title": "A misty room"
+    },
+    "156": {
+        "exits": {
+            "e": "?",
+            "s": "168",
+            "w": "141"
+        },
+        "title": "A misty room"
+    },
+    "16": {
+        "exits": {
+            "e": "8",
+            "n": "58",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "161": {
+        "exits": {
+            "e": "74"
+        },
+        "title": "A misty room"
+    },
+    "165": {
+        "exits": {
+            "n": "203",
+            "s": "125",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "166": {
+        "exits": {
+            "e": "150",
+            "s": "198",
+            "w": "?"
+        },
+        "title": "Mt. Holloway"
+    },
+    "168": {
+        "exits": {
+            "e": "340",
+            "n": "156"
+        },
+        "title": "A misty room"
+    },
+    "17": {
+        "coordinates": "(63,58)",
+        "elevation": 0,
+        "exits": {
+            "e": "42",
+            "n": "24",
+            "w": "11"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "18": {
+        "elevation": 4,
+        "exits": {
+            "n": "12",
+            "s": "22",
+            "w": "25"
+        },
+        "terrain": "MOUNTAIN",
+        "title": "Mt. Holloway"
+    },
+    "181": {
+        "coordinates": "(67,56)",
+        "elevation": 0,
+        "exits": {
+            "w": "97"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "19": {
+        "exits": {
+            "n": "20",
+            "s": "10",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "198": {
+        "exits": {
+            "e": "?",
+            "n": "166",
+            "s": "239"
+        },
+        "title": "A misty room"
+    },
+    "2": {
+        "exits": {
+            "e": "3",
+            "n": "0",
+            "s": "6"
+        },
+        "title": "A misty room"
+    },
+    "20": {
+        "exits": {
+            "e": "?",
+            "n": "63",
+            "s": "19",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "202": {
+        "exits": {
+            "e": "105"
+        },
+        "title": "Mt. Holloway"
+    },
+    "203": {
+        "exits": {
+            "e": "299",
+            "n": "268",
+            "s": "165"
+        },
+        "title": "A misty room"
+    },
+    "21": {
+        "coordinates": "(60,57)",
+        "elevation": 2,
+        "exits": {
+            "e": "12",
+            "w": "29"
+        },
+        "terrain": "MOUNTAIN",
+        "title": "Mt. Holloway"
+    },
+    "22": {
+        "exits": {
+            "n": "18",
+            "s": "78",
+            "w": "36"
+        },
+        "title": "The Peak of Mt. Holloway"
+    },
+    "239": {
+        "exits": {
+            "n": "198",
+            "w": "244"
+        },
+        "title": "A misty room"
+    },
+    "24": {
+        "coordinates": "(63,59)",
+        "elevation": 0,
+        "exits": {
+            "s": "17"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "244": {
+        "exits": {
+            "e": "239",
+            "n": "131"
+        },
+        "title": "A misty room"
+    },
+    "25": {
+        "elevation": 3,
+        "exits": {
+            "e": "18"
+        },
+        "terrain": "MOUNTAIN",
+        "title": "Mt. Holloway"
+    },
+    "268": {
+        "exits": {
+            "e": "411",
+            "s": "203",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "29": {
+        "coordinates": "(59,57)",
+        "elevation": 1,
+        "exits": {
+            "e": "21",
+            "s": "45",
+            "w": "49"
+        },
+        "terrain": "MOUNTAIN",
+        "title": "Mt. Holloway"
+    },
+    "292": {
+        "coordinates": "(55,57)",
+        "elevation": 0,
+        "exits": {
+            "e": "148",
+            "n": "301"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "299": {
+        "exits": {
+            "e": "311",
+            "w": "203"
+        },
+        "title": "A misty room"
+    },
+    "3": {
+        "exits": {
+            "e": "?",
+            "s": "9",
+            "w": "2"
+        },
+        "title": "Mt. Holloway"
+    },
+    "301": {
+        "coordinates": "(55,58)",
+        "elevation": 0,
+        "exits": {
+            "n": "304",
+            "s": "292"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "304": {
+        "coordinates": "(55,59)",
+        "elevation": 0,
+        "exits": {
+            "s": "301"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "311": {
+        "exits": {
+            "w": "299"
+        },
+        "title": "A misty room"
+    },
+    "34": {
+        "exits": {
+            "e": "35",
+            "n": "14",
+            "s": "?"
+        },
+        "title": "Mt. Holloway"
+    },
+    "340": {
+        "exits": {
+            "w": "168"
+        },
+        "title": "A misty room"
+    },
+    "35": {
+        "exits": {
+            "s": "52",
+            "w": "34"
+        },
+        "title": "A misty room"
+    },
+    "36": {
+        "exits": {
+            "e": "22",
+            "s": "48",
+            "w": "60"
+        },
+        "title": "Mt. Holloway"
+    },
+    "37": {
+        "exits": {
+            "w": "14"
+        },
+        "title": "Mt. Holloway"
+    },
+    "411": {
+        "exits": {
+            "w": "268"
+        },
+        "title": "A misty room"
+    },
+    "42": {
+        "coordinates": "(64,58)",
+        "elevation": 0,
+        "exits": {
+            "e": "?",
+            "n": "44",
+            "s": "80",
+            "w": "17"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "44": {
+        "coordinates": "(64,59)",
+        "elevation": 0,
+        "exits": {
+            "s": "42"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "45": {
+        "exits": {
+            "n": "29",
+            "s": "60"
+        },
+        "title": "Mt. Holloway"
+    },
+    "48": {
+        "exits": {
+            "n": "36",
+            "s": "105",
+            "w": "?"
+        },
+        "title": "Mt. Holloway"
+    },
+    "49": {
+        "coordinates": "(58,57)",
+        "elevation": 0,
+        "exits": {
+            "e": "29",
+            "s": "79",
+            "w": "136"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "52": {
+        "exits": {
+            "e": "?",
+            "n": "35",
+            "s": "68"
+        },
+        "title": "A misty room"
+    },
+    "58": {
+        "exits": {
+            "s": "16",
+            "w": "65"
+        },
+        "title": "A misty room"
+    },
+    "6": {
+        "exits": {
+            "n": "2",
+            "w": "7"
+        },
+        "title": "A misty room"
+    },
+    "60": {
+        "exits": {
+            "e": "36",
+            "n": "45",
+            "w": "?"
+        },
+        "title": "Mt. Holloway"
+    },
+    "63": {
+        "exits": {
+            "n": "72",
+            "s": "20",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "65": {
+        "exits": {
+            "e": "58",
+            "n": "74",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "68": {
+        "exits": {
+            "e": "100",
+            "n": "52"
+        },
+        "title": "A misty room"
+    },
+    "7": {
+        "exits": {
+            "e": "6",
+            "n": "8",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "72": {
+        "exits": {
+            "s": "63",
+            "w": "76"
+        },
+        "title": "A misty room"
+    },
+    "74": {
+        "exits": {
+            "n": "87",
+            "s": "65",
+            "w": "161"
+        },
+        "title": "A misty room"
+    },
+    "76": {
+        "exits": {
+            "e": "72",
+            "n": "83",
+            "w": "?"
+        },
+        "title": "A misty room"
+    },
+    "78": {
+        "exits": {
+            "n": "22",
+            "s": "108"
+        },
+        "title": "Mt. Holloway"
+    },
+    "79": {
+        "coordinates": "(58,56)",
+        "elevation": 0,
+        "exits": {
+            "n": "49"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "8": {
+        "exits": {
+            "s": "7",
+            "w": "16"
+        },
+        "title": "A misty room"
+    },
+    "80": {
+        "coordinates": "(64,57)",
+        "elevation": 0,
+        "exits": {
+            "e": "86",
+            "n": "42",
+            "s": "81"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "81": {
+        "coordinates": "(64,56)",
+        "elevation": 0,
+        "exits": {
+            "n": "80"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "83": {
+        "exits": {
+            "e": "?",
+            "s": "76",
+            "w": "125"
+        },
+        "title": "A misty room"
+    },
+    "86": {
+        "coordinates": "(65,57)",
+        "elevation": 0,
+        "exits": {
+            "e": "?",
+            "s": "96",
+            "w": "80"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "87": {
+        "exits": {
+            "s": "74"
+        },
+        "title": "A misty room"
+    },
+    "9": {
+        "coordinates": "(61,58)",
+        "elevation": 2,
+        "exits": {
+            "e": "11",
+            "n": "3",
+            "s": "12"
+        },
+        "terrain": "MOUNTAIN",
+        "title": "Mt. Holloway"
+    },
+    "96": {
+        "coordinates": "(65,56)",
+        "elevation": 0,
+        "exits": {
+            "e": "97",
+            "n": "86"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    },
+    "97": {
+        "coordinates": "(66,56)",
+        "elevation": 0,
+        "exits": {
+            "e": "181",
+            "w": "96"
+        },
+        "terrain": "NORMAL",
+        "title": "A misty room"
+    }
+}

@@ -15,7 +15,7 @@ class Explorer:
         map_graph_existing = {}
         try:
             with open('map.json', 'r+') as f:
-                map_graph_existing = json.loads(f.readline())
+                map_graph_existing = json.loads(f.read().strip().rstrip())
         except OSError:
             print("Cannot open map.json..does it exist?")
         self.map_graph = {**map_graph_existing}
@@ -68,6 +68,9 @@ class Explorer:
             }
         self.map_graph[prev_room]['exits'][dir_traveled] = self.current_room
         self.map_graph[self.current_room]['exits'][rev_dir] = prev_room
+        self.map_graph[self.current_room]['elevation'] = r_data['elevation']
+        self.map_graph[self.current_room]['terrain'] = r_data['terrain']
+        self.map_graph[self.current_room]['coordinates'] = r_data['coordinates']
         self.update_stored_map()
 
     def update_stored_map(self):
@@ -75,7 +78,7 @@ class Explorer:
         dump map graph data to file 
         '''
         with open('map.json', 'w+') as f:
-            json.dump(self.map_graph, f)
+            json.dump(self.map_graph, f, sort_keys=True, indent=4)
         # print(self.map_graph)
 
     def get_route_to(self, target):
