@@ -20,6 +20,7 @@ class Explorer:
             print("Cannot open map.json..does it exist?")
         self.map_graph = {**map_graph_existing}
         self.opp_dir = {'n': 's', 'e': 'w', 's': 'n', 'w': 'e'}
+        self.encumbered = False
         # set up connection to server
         self.server_url = 'https://lambda-treasure-hunt.herokuapp.com/api/adv'
         self.api_key = os.environ.get('API_KEY')
@@ -83,30 +84,33 @@ class Explorer:
 
     def get_route_to(self, target):
         '''
-        BFS for nearest '?' and add to travel_queue
+        BFS for nearest 'target' and add to travel_queue
         '''
         q = collections.deque([])
         for ex_dir in self.exits:
             q.append([ex_dir])
         while len(q) > 0:
-            print(f"get_route_to ->{target}<-..current path: {q}")
+            # print(f"get_route_to ->{target}<-")
             path = q.popleft()
             next_room = self.current_room
             for direction in path:
                 next_room = self.map_graph[next_room]['exits'][direction]
             check_dir = path[-1]
             # next_room = self.map_graph[check_room]['exits'][check_dir]
-            print(f"check_dir: {check_dir}, next_room: {next_room}")
+            # print(f"check_dir: {check_dir}, next_room: {next_room}")
+            # time.sleep(0.5)
             if next_room == target:
                 # found target
                 travel_queue = collections.deque(path)
                 break
             else:
-                for ex in self.map_graph[next_room]['exits']:
-                    if not ex == self.opp_dir[ex_dir]:
-                        new_path = path[:]
-                        new_path.append(ex)
-                        q.append(new_path)
+                if next_room != '?':
+                    for ex in self.map_graph[next_room]['exits']:
+                        exit_room = self.map_graph[next_room]['exits'][ex]
+                        if exit_room != self.current_room:
+                            new_path = path[:]
+                            new_path.append(ex)
+                            q.append(new_path)
         print(f"new route: {travel_queue}")
         return travel_queue
 
@@ -126,8 +130,12 @@ class Explorer:
             self.orient(r_data, direction)
             print("-" * 20)
             print(f"travel request: {r_data}")
+            # clear travel_queue and set self.encumbered if we are over encumbered an not aware
+            if not self.encumbered and "Heavily Encumbered: +100% CD" in r_data['messages']:
+                self.encumbered = True
+                travel_queue = []
             time.sleep(self.cool_down)
-            if len(r_data['items']) > 0:
+            while len(r_data['items']) > 0:
                 data = json.dumps({'name': 'treasure'})
                 r = requests.post(self.server_url + '/take/',
                                   headers=self.auth_header, data=data)
@@ -138,19 +146,31 @@ class Explorer:
 
     def explore(self):
         while True:
-            travel_queue = self.get_route_to('?')
-            self.travel(travel_queue)
+            if not self.encumbered:
+                # keep exploring until over encumbered by treasure
+                travel_queue = self.get_route_to('?')
+                self.travel(travel_queue)
+            else:
+                # travel to shop and sell treasure
+                print("Too much treasure, travel to shop")
+                travel_queue = self.get_route_to('1')
+                self.travel(travel_queue)
+                print("Arrived at shop, sell treasures!")
+                # figure out how many treasures we have
+                r = requests.post(self.server_url + '/status/',
+                                  headers=self.auth_header)
+                r_data = r.json()
+                treasure_count = len(r_data['inventory'])
+                time.sleep(r_data['cooldown'])
+                for count in range(treasure_count):
+                    data = json.dumps({"name": "treasure", "confirm": "yes"})
+                    r = requests.post(self.server_url + '/sell/',
+                                      headers=self.auth_header, data=data)
+                    r_data = r.json()
+                    print(f"sale response: {r_data}")
+                    time.sleep(r_data['cooldown'])
+                self.encumbered = False
 
 
 explorer = Explorer()
 explorer.explore()
-# while True:
-#     time.sleep(cool_down)
-# travel to next direction in travel_queue
-# if the travel_queue is empty, devise more moves based on current strategy:
-# if 'exploring' strategy travel to nearest '?' via shortest path
-# if there is a '?' in current_room's exits travel there
-# else if we are at a 'dead end' (no unexplored exits) BFS for nearest '?'
-# else if the map is already explored do 'playing' strategy
-
-# after moving to new room, if there is treasure take it
