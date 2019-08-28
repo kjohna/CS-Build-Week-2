@@ -90,7 +90,8 @@ class Explorer:
         for ex_dir in self.exits:
             q.append([ex_dir])
         while len(q) > 0:
-            # print(f"get_route_to ->{target}<-")
+            print(f"get_route_to ->{target}<-")
+            # print(f"queue: {q}")
             path = q.popleft()
             next_room = self.current_room
             for direction in path:
@@ -118,15 +119,38 @@ class Explorer:
         # expects a travel_queue which is a "deque"
         while len(travel_queue) > 0:
             direction = travel_queue.popleft()
-            data = {'direction': direction}
-            # if we know the id of the next room, add to the data for the request to get "Wise Explorer" reduction of cooldown
             next_room = self.map_graph[self.current_room]['exits'][direction]
-            if not next_room == '?':
+            data = {'direction': direction}
+            # # as long as we're going in a straight line we can dash
+            # if len(travel_queue) > 0 and direction == travel_queue[0]:
+            #     print("can dash!")
+            #     next_room_ids = [next_room]
+            #     while len(travel_queue) > 0 and direction == travel_queue[0]:
+            #         direction = travel_queue.popleft()
+            #         next_room = self.map_graph[next_room]['exits'][direction]
+            #         next_room_ids.append(next_room)
+            #     # handle case we're traveling to a '?'
+            #     if next_room_ids[len(next_room_ids) - 1] == '?':
+            #         next_room_ids.pop()
+            #     room_count = len(next_room_ids)
+            #     #'{"direction":"n", "num_rooms":"5", "next_room_ids":"10,19,20,63,72"}'
+            #     data['num_rooms'] = room_count
+            #     data['next_room_ids'] = ",".join(next_room_ids)
+            #     data_json = json.dumps(data)
+            #     print(f"dash: {data_json}")
+            #     r = requests.post(self.server_url + '/dash/',
+            #                       headers=self.auth_header, data=data_json)
+            # else:
+            # not a straight line
+            # if we know the id of the next room, add to the data for the request to get "Wise Explorer" reduction of cooldown
+            if next_room != '?':
                 data['next_room_id'] = next_room
             data_json = json.dumps(data)
             r = requests.post(self.server_url + '/move/',
                               headers=self.auth_header, data=data_json)
             r_data = r.json()
+            # TODO maybe extra sleep:
+            time.sleep(r_data['cooldown'])
             self.orient(r_data, direction)
             print("-" * 20)
             print(f"travel request: {r_data}")
@@ -135,7 +159,7 @@ class Explorer:
                 self.encumbered = True
                 travel_queue = []
             time.sleep(self.cool_down)
-            while len(r_data['items']) > 0:
+            while len(r_data['items']) > 0 and not self.encumbered:
                 data = json.dumps({'name': 'treasure'})
                 r = requests.post(self.server_url + '/take/',
                                   headers=self.auth_header, data=data)
@@ -153,6 +177,12 @@ class Explorer:
             else:
                 # travel to shop and sell treasure
                 print("Too much treasure, travel to shop")
+                # dump one treasure first
+                data = json.dumps({"name": "treasure"})
+                r = requests.post(self.server_url + '/drop/',
+                                  headers=self.auth_header, data=data)
+                r_data = r.json()
+                time.sleep(r_data['cooldown'])
                 travel_queue = self.get_route_to('1')
                 self.travel(travel_queue)
                 print("Arrived at shop, sell treasures!")
