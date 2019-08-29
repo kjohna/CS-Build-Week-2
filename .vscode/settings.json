@@ -2,5 +2,6 @@
   "cSpell.words": [
     "deque",
     "dotenv"
-  ]
+  ],
+  "python.pythonPath": "/usr/local/opt/python/bin/python3.7"
 }

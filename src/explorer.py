@@ -1,12 +1,16 @@
+from pathlib import Path  # python3 only
 import json
 import requests
 import os
 import time
 import collections
 import random
-# consider moving to a settings.py
+# # consider moving to a settings.py
 from dotenv import load_dotenv
 load_dotenv()
+# # OR, explicitly providing path to '.env'
+# env_path = Path('.') / '.env'
+# load_dotenv(dotenv_path=env_path)
 
 
 class Explorer:
@@ -14,9 +18,11 @@ class Explorer:
         # load most recent map from map.json
         # note should at minimum be text file containing: "{}"
         map_graph_existing = {}
+        working_dir = os.path.dirname(os.path.abspath(__file__))
         try:
-            with open('map.json', 'r+') as f:
+            with open(working_dir + '/map.json', 'r+') as f:
                 map_graph_existing = json.loads(f.read().strip().rstrip())
+            print("--------------loaded saved map---------------")
         except OSError:
             print("Cannot open map.json..does it exist?")
         self.map_graph = {**map_graph_existing}
@@ -89,7 +95,8 @@ class Explorer:
         BFS for nearest 'target' and add to travel_queue
         '''
         q = collections.deque([])
-        visited = set(self.current_room)
+        visited = set()
+        visited.add(self.current_room)
         for ex_dir in self.exits:
             q.append([ex_dir])
         print(f"current room: {self.current_room} exits: {self.exits}")
