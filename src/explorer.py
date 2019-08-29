@@ -35,12 +35,13 @@ class Explorer:
         self.auth_header = {
             'Authorization': f"Token {self.api_key}"
         }
+
         # make first request to server to determine current room
-        r = requests.get(self.server_url + '/init/', headers=self.auth_header)
-        r_data = r.json()
+        r_data = self.make_request('init')
         self.current_room = str(r_data['room_id'])
         self.current_room_title = r_data['title']
         self.exits = r_data['exits']
+        # TODO: remove once self.request is complete
         self.cool_down = r_data['cooldown']
         # initialize if this is the first time running
         if len(self.map_graph.keys()) == 0:
@@ -51,9 +52,51 @@ class Explorer:
             self.map_graph[self.current_room]['title'] = self.current_room_title
             self.map_graph[self.current_room]['exits'] = found_exits
             self.update_stored_map
-        # wait for "cool_down" before anything else
-        time.sleep(self.cool_down)
         print(r_data)
+
+    def make_request(self, req_type, data=None):
+        '''
+        make a request to the server and wait for cooldown.
+        accepts a dict of data
+        return dict of returned json
+        '''
+        if data:
+            data_json = json.dumps(data)
+        if req_type == 'init':
+            r = requests.get(self.server_url + '/init/',
+                             headers=self.auth_header)
+        elif req_type == 'move':
+            r = requests.post(self.server_url + '/move/',
+                              headers=self.auth_header, data=data_json)
+        elif req_type == 'take':
+            r = requests.post(self.server_url + '/take/',
+                              headers=self.auth_header, data=data_json)
+        elif req_type == 'drop':
+            r = requests.post(self.server_url + '/drop/',
+                              headers=self.auth_header, data=data_json)
+        elif req_type == 'status':
+            r = requests.post(self.server_url + '/status/',
+                              headers=self.auth_header)
+        elif req_type == 'sell':
+            r = requests.post(self.server_url + '/sell/',
+                              headers=self.auth_header, data=data_json)
+        else:
+            print('unknown req_type')
+        r_data = r.json()
+        # wait for "cool_down" before anything else
+        cooldown = r_data['cooldown']
+        print(f"cool down = {cooldown}", end="..", flush=True)
+        while cooldown > 0:
+            if(cooldown > 1):
+                time.sleep(1)
+                cooldown -= 1
+            else:
+                time.sleep(cooldown)
+                cooldown = 0
+            print(cooldown, end="..", flush=True)
+        # formatting..
+        print(" ")
+        return r_data
 
     def orient(self, r_data, dir_traveled):
         '''
@@ -100,8 +143,8 @@ class Explorer:
         for ex_dir in self.exits:
             q.append([ex_dir])
         print(f"current room: {self.current_room} exits: {self.exits}")
+        print(f"get_route_to ->{target}<-")
         while len(q) > 0:
-            print(f"get_route_to ->{target}<-")
             # print(f"queue: {q}")
             path = q.popleft()
             # path is only directions, need to re-find next_room
@@ -161,12 +204,7 @@ class Explorer:
             # if we know the id of the next room, add to the data for the request to get "Wise Explorer" reduction of cooldown
             if next_room != '?':
                 data['next_room_id'] = next_room
-            data_json = json.dumps(data)
-            r = requests.post(self.server_url + '/move/',
-                              headers=self.auth_header, data=data_json)
-            r_data = r.json()
-            # TODO maybe extra sleep:
-            time.sleep(r_data['cooldown'])
+            r_data = self.make_request('move', data)
             self.orient(r_data, direction)
             print("-" * 20)
             print(f"travel request: {r_data}")
@@ -174,16 +212,11 @@ class Explorer:
             if not self.encumbered and "Heavily Encumbered: +100% CD" in r_data['messages']:
                 self.encumbered = True
                 travel_queue = []
-            time.sleep(self.cool_down)
             # # code to pick up all treasure in the room
             while len(r_data['items']) > 0 and not self.encumbered:
-                data = json.dumps({'name': 'treasure'})
-                r = requests.post(self.server_url + '/take/',
-                                  headers=self.auth_header, data=data)
-                r_data = r.json()
+                r_data = self.make_request('take', {'name': 'treasure'})
                 print("$" * 20)
                 print(f"treasure found: {r_data}")
-                time.sleep(r_data['cooldown'])
 
     def explore(self):
         while True:
@@ -201,27 +234,17 @@ class Explorer:
                 # travel to shop and sell treasure
                 print("Too much treasure, travel to shop")
                 # dump one treasure first
-                data = json.dumps({"name": "treasure"})
-                r = requests.post(self.server_url + '/drop/',
-                                  headers=self.auth_header, data=data)
-                r_data = r.json()
-                time.sleep(r_data['cooldown'])
+                r_data = self.make_request('drop', {"name": "treasure"})
                 travel_queue = self.get_route_to('1')
                 self.travel(travel_queue)
                 print("Arrived at shop, sell treasures!")
                 # figure out how many treasures we have
-                r = requests.post(self.server_url + '/status/',
-                                  headers=self.auth_header)
-                r_data = r.json()
+                r_data = self.make_request('status')
                 treasure_count = len(r_data['inventory'])
-                time.sleep(r_data['cooldown'])
                 for count in range(treasure_count):
-                    data = json.dumps({"name": "treasure", "confirm": "yes"})
-                    r = requests.post(self.server_url + '/sell/',
-                                      headers=self.auth_header, data=data)
-                    r_data = r.json()
+                    r_data = self.make_request(
+                        'sell', {"name": "treasure", "confirm": "yes"})
                     print(f"sale response: {r_data}")
-                    time.sleep(r_data['cooldown'])
                 self.encumbered = False
 
 
