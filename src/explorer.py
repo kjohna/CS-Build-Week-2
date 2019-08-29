@@ -3,6 +3,7 @@ import requests
 import os
 import time
 import collections
+import random
 # consider moving to a settings.py
 from dotenv import load_dotenv
 load_dotenv()
@@ -21,6 +22,7 @@ class Explorer:
         self.map_graph = {**map_graph_existing}
         self.opp_dir = {'n': 's', 'e': 'w', 's': 'n', 'w': 'e'}
         self.encumbered = False
+
         # set up connection to server
         self.server_url = 'https://lambda-treasure-hunt.herokuapp.com/api/adv'
         self.api_key = os.environ.get('API_KEY')
@@ -87,31 +89,38 @@ class Explorer:
         BFS for nearest 'target' and add to travel_queue
         '''
         q = collections.deque([])
+        visited = set(self.current_room)
         for ex_dir in self.exits:
             q.append([ex_dir])
+        print(f"current room: {self.current_room} exits: {self.exits}")
         while len(q) > 0:
             print(f"get_route_to ->{target}<-")
             # print(f"queue: {q}")
             path = q.popleft()
+            # path is only directions, need to re-find next_room
             next_room = self.current_room
             for direction in path:
                 next_room = self.map_graph[next_room]['exits'][direction]
             check_dir = path[-1]
-            # next_room = self.map_graph[check_room]['exits'][check_dir]
-            # print(f"check_dir: {check_dir}, next_room: {next_room}")
             # time.sleep(0.5)
             if next_room == target:
                 # found target
                 travel_queue = collections.deque(path)
                 break
             else:
-                if next_room != '?':
+                if next_room != '?' and next_room not in visited:
+                    visited.add(next_room)
                     for ex in self.map_graph[next_room]['exits']:
                         exit_room = self.map_graph[next_room]['exits'][ex]
+                        # having visited should make this unnecessary?
                         if exit_room != self.current_room:
                             new_path = path[:]
                             new_path.append(ex)
                             q.append(new_path)
+
+        print(f"check_dir: {check_dir}, next_room: {next_room}")
+        print(
+            f"len(visited): {len(visited)} len(graph): {len(self.map_graph)} visited: {sorted(visited)}")
         print(f"new route: {travel_queue}")
         return travel_queue
 
@@ -159,6 +168,7 @@ class Explorer:
                 self.encumbered = True
                 travel_queue = []
             time.sleep(self.cool_down)
+            # # code to pick up all treasure in the room
             while len(r_data['items']) > 0 and not self.encumbered:
                 data = json.dumps({'name': 'treasure'})
                 r = requests.post(self.server_url + '/take/',
@@ -172,7 +182,13 @@ class Explorer:
         while True:
             if not self.encumbered:
                 # keep exploring until over encumbered by treasure
-                travel_queue = self.get_route_to('?')
+                # search for a room...
+                # travel_queue = self.get_route_to('66')
+                # ... or travel a random direction
+                # travel_queue = collections.deque([random.choice(self.exits)])
+                # ... or travel to a random room
+                travel_queue = self.get_route_to(
+                    str(random.choice(range(1, 500))))
                 self.travel(travel_queue)
             else:
                 # travel to shop and sell treasure

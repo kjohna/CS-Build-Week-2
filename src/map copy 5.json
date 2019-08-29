@@ -159,7 +159,7 @@
         "coordinates": "(64,52)",
         "elevation": 0,
         "exits": {
-            "e": "158",
+            "e": "?",
             "n": "106",
             "s": "367"
         },
@@ -358,7 +358,7 @@
         "exits": {
             "e": "194",
             "n": "126",
-            "w": "170"
+            "w": "?"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -679,16 +679,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "158": {
-        "coordinates": "(65,52)",
-        "elevation": 0,
-        "exits": {
-            "s": "167",
-            "w": "111"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "159": {
         "coordinates": "(55,56)",
         "elevation": 0,
@@ -779,17 +769,6 @@
         "terrain": "MOUNTAIN",
         "title": "Mt. Holloway"
     },
-    "167": {
-        "coordinates": "(65,51)",
-        "elevation": 0,
-        "exits": {
-            "e": "260",
-            "n": "158",
-            "s": "262"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "168": {
         "coordinates": "(66,52)",
         "elevation": 0,
@@ -817,15 +796,6 @@
             "e": "42",
             "n": "24",
             "w": "11"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "170": {
-        "coordinates": "(56,53)",
-        "elevation": 0,
-        "exits": {
-            "e": "129"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -876,7 +846,7 @@
         "exits": {
             "e": "109",
             "s": "183",
-            "w": "179"
+            "w": "?"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -908,17 +878,6 @@
             "e": "243",
             "n": "209",
             "w": "90"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "179": {
-        "coordinates": "(54,55)",
-        "elevation": 0,
-        "exits": {
-            "e": "175",
-            "s": "233",
-            "w": "213"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -1096,7 +1055,7 @@
         "exits": {
             "e": "138",
             "s": "228",
-            "w": "225"
+            "w": "?"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -1107,18 +1066,7 @@
         "exits": {
             "e": "159",
             "n": "222",
-            "w": "197"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "197": {
-        "coordinates": "(53,56)",
-        "elevation": 0,
-        "exits": {
-            "e": "196",
-            "n": "232",
-            "w": "276"
+            "w": "?"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -1306,23 +1254,13 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "213": {
-        "coordinates": "(53,55)",
-        "elevation": 0,
-        "exits": {
-            "e": "179",
-            "w": "420"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "214": {
         "coordinates": "(58,52)",
         "elevation": 0,
         "exits": {
             "e": "173",
             "n": "194",
-            "w": "226"
+            "w": "?"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -1438,26 +1376,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "225": {
-        "coordinates": "(58,51)",
-        "elevation": 0,
-        "exits": {
-            "e": "195",
-            "s": "278"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "226": {
-        "coordinates": "(57,52)",
-        "elevation": 0,
-        "exits": {
-            "e": "214",
-            "s": "300"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "227": {
         "coordinates": "(63,71)",
         "elevation": 0,
@@ -1484,7 +1402,7 @@
         "exits": {
             "n": "183",
             "s": "250",
-            "w": "236"
+            "w": "?"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -1503,7 +1421,7 @@
         "coordinates": "(63,50)",
         "elevation": 0,
         "exits": {
-            "e": "297",
+            "e": "?",
             "n": "199",
             "s": "307"
         },
@@ -1520,27 +1438,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "232": {
-        "coordinates": "(53,57)",
-        "elevation": 0,
-        "exits": {
-            "n": "272",
-            "s": "197",
-            "w": "235"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "233": {
-        "coordinates": "(54,54)",
-        "elevation": 0,
-        "exits": {
-            "n": "179",
-            "w": "238"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "234": {
         "coordinates": "(56,68)",
         "elevation": 0,
@@ -1552,42 +1449,12 @@
         "terrain": "CAVE",
         "title": "A Dark Cave"
     },
-    "235": {
-        "coordinates": "(52,57)",
-        "elevation": 0,
-        "exits": {
-            "e": "232",
-            "n": "330",
-            "w": "355"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "236": {
-        "coordinates": "(54,53)",
-        "elevation": 0,
-        "exits": {
-            "e": "229",
-            "s": "264"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "237": {
         "coordinates": "(57,66)",
         "elevation": 0,
         "exits": {
             "e": "125",
             "w": "245"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "238": {
-        "coordinates": "(53,54)",
-        "elevation": 0,
-        "exits": {
-            "e": "233"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -1729,7 +1596,7 @@
         "coordinates": "(55,52)",
         "elevation": 0,
         "exits": {
-            "e": "289",
+            "e": "?",
             "n": "229",
             "s": "294"
         },
@@ -1837,15 +1704,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "260": {
-        "coordinates": "(66,51)",
-        "elevation": 0,
-        "exits": {
-            "w": "167"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "261": {
         "coordinates": "(69,54)",
         "elevation": 0,
@@ -1853,17 +1711,6 @@
             "e": "322",
             "s": "277",
             "w": "247"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "262": {
-        "coordinates": "(65,50)",
-        "elevation": 0,
-        "exits": {
-            "e": "358",
-            "n": "167",
-            "s": "370"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -1876,17 +1723,6 @@
         },
         "terrain": "CAVE",
         "title": "A Dark Cave"
-    },
-    "264": {
-        "coordinates": "(54,52)",
-        "elevation": 0,
-        "exits": {
-            "n": "236",
-            "s": "274",
-            "w": "273"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
     },
     "265": {
         "coordinates": "(69,61)",
@@ -1973,36 +1809,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "272": {
-        "coordinates": "(53,58)",
-        "elevation": 0,
-        "exits": {
-            "n": "295",
-            "s": "232"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "273": {
-        "coordinates": "(53,52)",
-        "elevation": 0,
-        "exits": {
-            "e": "264",
-            "n": "343"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "274": {
-        "coordinates": "(54,51)",
-        "elevation": 0,
-        "exits": {
-            "n": "264",
-            "w": "308"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "275": {
         "coordinates": "(53,67)",
         "elevation": 0,
@@ -2013,31 +1819,12 @@
         "terrain": "CAVE",
         "title": "A Dark Cave"
     },
-    "276": {
-        "coordinates": "(52,56)",
-        "elevation": 0,
-        "exits": {
-            "e": "197",
-            "w": "419"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "277": {
         "coordinates": "(69,53)",
         "elevation": 0,
         "exits": {
             "e": "323",
             "n": "261"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "278": {
-        "coordinates": "(58,50)",
-        "elevation": 0,
-        "exits": {
-            "n": "225"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -2077,7 +1864,7 @@
             "e": "309",
             "n": "228",
             "s": "318",
-            "w": "317"
+            "w": "?"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -2153,15 +1940,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "289": {
-        "coordinates": "(56,52)",
-        "elevation": 0,
-        "exits": {
-            "w": "250"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "29": {
         "coordinates": "(59,57)",
         "elevation": 1,
@@ -2222,29 +2000,11 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "295": {
-        "coordinates": "(53,59)",
-        "elevation": 0,
-        "exits": {
-            "s": "272"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "296": {
         "coordinates": "(60,71)",
         "elevation": 0,
         "exits": {
             "s": "248"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "297": {
-        "coordinates": "(64,50)",
-        "elevation": 0,
-        "exits": {
-            "w": "230"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -2287,17 +2047,6 @@
             "e": "32",
             "s": "31",
             "w": "27"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "300": {
-        "coordinates": "(57,51)",
-        "elevation": 0,
-        "exits": {
-            "n": "226",
-            "s": "377",
-            "w": "389"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -2346,7 +2095,7 @@
         "coordinates": "(54,58)",
         "elevation": 0,
         "exits": {
-            "n": "365",
+            "n": "?",
             "s": "222"
         },
         "terrain": "NORMAL",
@@ -2369,16 +2118,7 @@
             "e": "371",
             "n": "230",
             "s": "373",
-            "w": "321"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "308": {
-        "coordinates": "(53,51)",
-        "elevation": 0,
-        "exits": {
-            "e": "274"
+            "w": "?"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -2470,17 +2210,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "317": {
-        "coordinates": "(58,49)",
-        "elevation": 0,
-        "exits": {
-            "e": "281",
-            "s": "387",
-            "w": "409"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "318": {
         "coordinates": "(59,48)",
         "elevation": 0,
@@ -2519,16 +2248,6 @@
         "exits": {
             "n": "348",
             "s": "257"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "321": {
-        "coordinates": "(62,49)",
-        "elevation": 0,
-        "exits": {
-            "e": "307",
-            "s": "413"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -2627,17 +2346,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "330": {
-        "coordinates": "(52,58)",
-        "elevation": 0,
-        "exits": {
-            "n": "369",
-            "s": "235",
-            "w": "383"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "331": {
         "coordinates": "(67,68)",
         "elevation": 0,
@@ -2672,10 +2380,10 @@
         "coordinates": "(55,50)",
         "elevation": 0,
         "exits": {
-            "e": "341",
+            "e": "?",
             "n": "294",
-            "s": "393",
-            "w": "391"
+            "s": "?",
+            "w": "?"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -2748,32 +2456,12 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "341": {
-        "coordinates": "(56,50)",
-        "elevation": 0,
-        "exits": {
-            "s": "449",
-            "w": "334"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "342": {
         "coordinates": "(61,48)",
         "elevation": 0,
         "exits": {
             "n": "326",
-            "s": "432"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "343": {
-        "coordinates": "(53,53)",
-        "elevation": 0,
-        "exits": {
-            "s": "273",
-            "w": "351"
+            "s": "?"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -2861,17 +2549,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "351": {
-        "coordinates": "(52,53)",
-        "elevation": 0,
-        "exits": {
-            "e": "343",
-            "s": "491",
-            "w": "478"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "352": {
         "coordinates": "(68,50)",
         "elevation": 0,
@@ -2901,15 +2578,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "355": {
-        "coordinates": "(51,57)",
-        "elevation": 0,
-        "exits": {
-            "e": "235"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "356": {
         "coordinates": "(67,51)",
         "elevation": 0,
@@ -2924,16 +2592,6 @@
         "elevation": 0,
         "exits": {
             "w": "328"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "358": {
-        "coordinates": "(66,50)",
-        "elevation": 0,
-        "exits": {
-            "e": "401",
-            "w": "262"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -3011,15 +2669,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "365": {
-        "coordinates": "(54,59)",
-        "elevation": 0,
-        "exits": {
-            "s": "305"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "366": {
         "coordinates": "(53,60)",
         "elevation": 0,
@@ -3047,17 +2696,6 @@
         "terrain": "CAVE",
         "title": "A Dark Cave"
     },
-    "369": {
-        "coordinates": "(52,59)",
-        "elevation": 0,
-        "exits": {
-            "n": "400",
-            "s": "330",
-            "w": "376"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "37": {
         "coordinates": "(63,57)",
         "elevation": 1,
@@ -3066,17 +2704,6 @@
         },
         "terrain": "MOUNTAIN",
         "title": "Mt. Holloway"
-    },
-    "370": {
-        "coordinates": "(65,49)",
-        "elevation": 0,
-        "exits": {
-            "e": "407",
-            "n": "262",
-            "s": "434"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
     },
     "371": {
         "coordinates": "(64,49)",
@@ -3123,24 +2750,6 @@
         "exits": {
             "e": "385",
             "n": "345"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "376": {
-        "coordinates": "(51,59)",
-        "elevation": 0,
-        "exits": {
-            "e": "369"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "377": {
-        "coordinates": "(57,50)",
-        "elevation": 0,
-        "exits": {
-            "n": "300"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -3205,16 +2814,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "383": {
-        "coordinates": "(51,58)",
-        "elevation": 0,
-        "exits": {
-            "e": "330",
-            "w": "495"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "384": {
         "coordinates": "(69,51)",
         "elevation": 0,
@@ -3243,32 +2842,12 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "387": {
-        "coordinates": "(58,48)",
-        "elevation": 0,
-        "exits": {
-            "n": "317",
-            "s": "417",
-            "w": "431"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "388": {
         "coordinates": "(71,55)",
         "elevation": 0,
         "exits": {
             "e": "477",
             "w": "382"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "389": {
-        "coordinates": "(56,51)",
-        "elevation": 0,
-        "exits": {
-            "e": "300"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -3294,33 +2873,12 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "391": {
-        "coordinates": "(54,50)",
-        "elevation": 0,
-        "exits": {
-            "e": "334",
-            "s": "396",
-            "w": "428"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "392": {
         "coordinates": "(66,70)",
         "elevation": 0,
         "exits": {
             "e": "462",
             "s": "344"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "393": {
-        "coordinates": "(55,49)",
-        "elevation": 0,
-        "exits": {
-            "n": "334",
-            "s": "482"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -3341,15 +2899,6 @@
             "e": "421",
             "s": "403",
             "w": "379"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "396": {
-        "coordinates": "(54,49)",
-        "elevation": 0,
-        "exits": {
-            "n": "391"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -3403,24 +2952,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "400": {
-        "coordinates": "(52,60)",
-        "elevation": 0,
-        "exits": {
-            "s": "369"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "401": {
-        "coordinates": "(67,50)",
-        "elevation": 0,
-        "exits": {
-            "w": "358"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "402": {
         "coordinates": "(53,61)",
         "elevation": 0,
@@ -3470,16 +3001,6 @@
         "terrain": "CAVE",
         "title": "A Dark Cave"
     },
-    "407": {
-        "coordinates": "(66,49)",
-        "elevation": 0,
-        "exits": {
-            "s": "496",
-            "w": "370"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "408": {
         "coordinates": "(54,71)",
         "elevation": 0,
@@ -3490,15 +3011,6 @@
         },
         "terrain": "CAVE",
         "title": "A Dark Cave"
-    },
-    "409": {
-        "coordinates": "(57,49)",
-        "elevation": 0,
-        "exits": {
-            "e": "317"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
     },
     "41": {
         "coordinates": "(62,64)",
@@ -3537,15 +3049,6 @@
         "terrain": "CAVE",
         "title": "A Dark Cave"
     },
-    "413": {
-        "coordinates": "(62,48)",
-        "elevation": 0,
-        "exits": {
-            "n": "321"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "414": {
         "coordinates": "(71,59)",
         "elevation": 0,
@@ -3574,15 +3077,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "417": {
-        "coordinates": "(58,47)",
-        "elevation": 0,
-        "exits": {
-            "n": "387"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "418": {
         "coordinates": "(51,70)",
         "elevation": 0,
@@ -3594,15 +3088,6 @@
         "terrain": "CAVE",
         "title": "A Dark Cave"
     },
-    "419": {
-        "coordinates": "(51,56)",
-        "elevation": 0,
-        "exits": {
-            "e": "276"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "42": {
         "coordinates": "(64,58)",
         "elevation": 0,
@@ -3611,17 +3096,6 @@
             "n": "44",
             "s": "80",
             "w": "17"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "420": {
-        "coordinates": "(52,55)",
-        "elevation": 0,
-        "exits": {
-            "e": "213",
-            "s": "444",
-            "w": "437"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -3696,15 +3170,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "428": {
-        "coordinates": "(53,50)",
-        "elevation": 0,
-        "exits": {
-            "e": "391"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "429": {
         "coordinates": "(52,64)",
         "elevation": 0,
@@ -3735,25 +3200,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "431": {
-        "coordinates": "(57,48)",
-        "elevation": 0,
-        "exits": {
-            "e": "387",
-            "w": "492"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "432": {
-        "coordinates": "(61,47)",
-        "elevation": 0,
-        "exits": {
-            "n": "342"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "433": {
         "coordinates": "(71,53)",
         "elevation": 0,
@@ -3761,15 +3207,6 @@
             "e": "460",
             "s": "455",
             "w": "323"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "434": {
-        "coordinates": "(65,48)",
-        "elevation": 0,
-        "exits": {
-            "n": "370"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -3788,16 +3225,6 @@
         "elevation": 0,
         "exits": {
             "s": "350"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "437": {
-        "coordinates": "(51,55)",
-        "elevation": 0,
-        "exits": {
-            "e": "420",
-            "w": "497"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -3868,16 +3295,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "444": {
-        "coordinates": "(52,54)",
-        "elevation": 0,
-        "exits": {
-            "n": "420",
-            "w": "490"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "445": {
         "coordinates": "(52,68)",
         "elevation": 0,
@@ -3913,15 +3330,6 @@
         "elevation": 0,
         "exits": {
             "e": "364"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "449": {
-        "coordinates": "(56,49)",
-        "elevation": 0,
-        "exits": {
-            "n": "341"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -4221,15 +3629,6 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "478": {
-        "coordinates": "(51,53)",
-        "elevation": 0,
-        "exits": {
-            "e": "351"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "479": {
         "coordinates": "(68,63)",
         "elevation": 0,
@@ -4264,15 +3663,6 @@
         "elevation": 0,
         "exits": {
             "s": "404"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "482": {
-        "coordinates": "(55,48)",
-        "elevation": 0,
-        "exits": {
-            "n": "393"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
@@ -4352,75 +3742,11 @@
         "terrain": "NORMAL",
         "title": "A misty room"
     },
-    "490": {
-        "coordinates": "(51,54)",
-        "elevation": 0,
-        "exits": {
-            "e": "444",
-            "w": "493"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "491": {
-        "coordinates": "(52,52)",
-        "elevation": 0,
-        "exits": {
-            "n": "351"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "492": {
-        "coordinates": "(56,48)",
-        "elevation": 0,
-        "exits": {
-            "e": "431"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "493": {
-        "coordinates": "(50,54)",
-        "elevation": 0,
-        "exits": {
-            "e": "490"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
     "494": {
         "coordinates": "(67,71)",
         "elevation": 0,
         "exits": {
             "w": "473"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "495": {
-        "coordinates": "(50,58)",
-        "elevation": 0,
-        "exits": {
-            "e": "383"
-        },
-        "terrain": "NORMAL",
-        "title": "The Transmogriphier"
-    },
-    "496": {
-        "coordinates": "(66,48)",
-        "elevation": 0,
-        "exits": {
-            "n": "407"
-        },
-        "terrain": "NORMAL",
-        "title": "A misty room"
-    },
-    "497": {
-        "coordinates": "(50,55)",
-        "elevation": 0,
-        "exits": {
-            "e": "437"
         },
         "terrain": "NORMAL",
         "title": "A misty room"
