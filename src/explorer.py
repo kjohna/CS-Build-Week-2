@@ -16,16 +16,30 @@ load_dotenv()
 class Explorer:
     def __init__(self):
         # load most recent map from map.json
-        # note should at minimum be text file containing: "{}"
+        # NOTE: should at minimum be text file containing: "{}"
         map_graph_existing = {}
         working_dir = os.path.dirname(os.path.abspath(__file__))
         try:
             with open(working_dir + '/map.json', 'r+') as f:
                 map_graph_existing = json.loads(f.read().strip().rstrip())
-            print("--------------loaded saved map---------------")
+            print("--------------loaded saved map----------------")
         except OSError:
             print("Cannot open map.json..does it exist?")
         self.map_graph = {**map_graph_existing}
+
+        # load treasure_tracker from treasure_tracker.json
+        # NOTE: should at minimum be text file containing: "{}"
+        treasure_tracker_existing = {}
+        working_dir = os.path.dirname(os.path.abspath(__file__))
+        try:
+            with open(working_dir + '/treasure_tracker.json', 'r+') as f:
+                treasure_tracker_existing = json.loads(
+                    f.read().strip().rstrip())
+            print("--------loaded saved treasure_tracker---------")
+        except OSError:
+            print("Cannot open treasure_tracker.json..does it exist?")
+        self.treasure_tracker = {**treasure_tracker_existing}
+
         self.opp_dir = {'n': 's', 'e': 'w', 's': 'n', 'w': 'e'}
         self.encumbered = False
 
@@ -141,6 +155,13 @@ class Explorer:
             json.dump(self.map_graph, f, sort_keys=True, indent=4)
         # print(self.map_graph)
 
+    def update_stored_treasure_tracker(self):
+        ''' 
+        dump treasure_tracker data to file 
+        '''
+        with open('treasure_tracker.json', 'w+') as f:
+            json.dump(self.treasure_tracker, f, sort_keys=True, indent=4)
+
     def get_route_to(self, target):
         '''
         BFS for nearest 'target' and add to travel_queue
@@ -241,9 +262,15 @@ class Explorer:
                     r_data = self.make_request('move', data)
                 # # code to pick up all treasure in the room
                 while len(r_data['items']) > 0 and not self.encumbered:
-                    r_data = self.make_request('take', {'name': 'treasure'})
+                    treasure = r_data['items'][0]
                     print("$" * 20)
                     print(f"treasure found: {r_data}")
+                    r_data = self.make_request('take', {'name': 'treasure'})
+                    # update treasure_tracker
+                    if treasure not in self.treasure_tracker:
+                        self.treasure_tracker[treasure] = 0
+                    self.treasure_tracker[treasure] += 1
+                    self.update_stored_treasure_tracker()
             self.orient(r_data, direction)
             print("-" * 20)
             print(f"travel response: {r_data}")
@@ -283,6 +310,7 @@ class Explorer:
                 for count in range(treasure_count):
                     r_data = self.make_request(
                         'sell', {"name": "treasure", "confirm": "yes"})
+                    print("$" * 20)
                     print(f"sale response: {r_data}")
                 self.encumbered = False
 
